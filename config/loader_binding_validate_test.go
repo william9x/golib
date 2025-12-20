@@ -1,10 +1,11 @@
 package config
 
 import (
+	"testing"
+
 	"github.com/go-playground/validator/v10"
 	"github.com/pkg/errors"
 	assert "github.com/stretchr/testify/require"
-	"testing"
 )
 
 type testStoreWithValidation struct {

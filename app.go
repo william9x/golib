@@ -1,11 +1,13 @@
-package golib
+package golib_core
 
 import (
 	"context"
-	"github.com/golibs-starter/golib/config"
-	"github.com/golibs-starter/golib/web/middleware"
+
+	"github.com/gofiber/fiber/v2"
+	"github.com/william9x/golib-core/config"
+	"github.com/william9x/golib-core/log"
+	"github.com/william9x/golib-core/web/middleware"
 	"go.uber.org/fx"
-	"net/http"
 )
 
 func AppOpt() fx.Option {
@@ -14,7 +16,7 @@ func AppOpt() fx.Option {
 			return context.Background()
 		}),
 		ProvideProps(config.NewAppProperties),
-		fx.WithLogger(NewFxLogger),
+		fx.WithLogger(log.NewFxLogger),
 		fx.Provide(New),
 	)
 }
@@ -22,9 +24,8 @@ func AppOpt() fx.Option {
 func New(context context.Context, props *config.AppProperties) *App {
 	app := App{context: context, props: props}
 	app.AddHandler(
-		middleware.AdvancedResponseWriter(),
-		middleware.RequestContext(props),
-		middleware.CorrelationId(),
+		middleware.Recover(),
+		middleware.RequestId(),
 	)
 	return &app
 }
@@ -32,7 +33,7 @@ func New(context context.Context, props *config.AppProperties) *App {
 type App struct {
 	props    *config.AppProperties
 	context  context.Context
-	handlers []func(next http.Handler) http.Handler
+	handlers []fiber.Handler
 }
 
 func (a *App) Name() string {
@@ -51,10 +52,10 @@ func (a *App) Context() context.Context {
 	return a.context
 }
 
-func (a *App) Handlers() []func(next http.Handler) http.Handler {
+func (a *App) Handlers() []fiber.Handler {
 	return a.handlers
 }
 
-func (a *App) AddHandler(handlers ...func(next http.Handler) http.Handler) {
+func (a *App) AddHandler(handlers ...fiber.Handler) {
 	a.handlers = append(a.handlers, handlers...)
 }

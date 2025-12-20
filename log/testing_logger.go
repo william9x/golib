@@ -1,9 +1,10 @@
 package log
 
 import (
+	"testing"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"testing"
 )
 
 type TestingLogger struct {

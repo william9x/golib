@@ -1,16 +1,16 @@
-package golib
+package golib_core
 
 import (
 	"fmt"
-	"github.com/golibs-starter/golib/config"
-	coreLog "github.com/golibs-starter/golib/log"
-	"github.com/golibs-starter/golib/utils"
-	"go.uber.org/fx"
-	"log"
 	"os"
 	"reflect"
 	"runtime"
 	"strings"
+
+	"github.com/william9x/golib-core/config"
+	"github.com/william9x/golib-core/log"
+	"github.com/william9x/golib-core/utils"
+	"go.uber.org/fx"
 )
 
 func ProvideProps(propConstructor interface{}) fx.Option {
@@ -40,7 +40,7 @@ func ProvidePropsOption(option Option) fx.Option {
 
 func PropertiesOpt() fx.Option {
 	return fx.Options(
-		ProvidePropsOption(WithDebugLog(coreLog.Debugf)),
+		ProvidePropsOption(WithDebugLog(nil)),
 		fx.Provide(NewPropertiesLoader),
 	)
 }
@@ -62,7 +62,7 @@ func NewPropertiesLoader(in PropertiesLoaderIn) (config.Loader, error) {
 	option.ActiveProfiles = utils.SliceFromCommaString(profiles)
 	option.ConfigPaths = utils.SliceFromCommaString(os.Getenv("APP_CONFIG_PATHS"))
 	option.ConfigFormat = os.Getenv("APP_CONFIG_FORMAT")
-	option.DebugFunc = log.Printf
+	option.DebugFunc = log.Infof
 
 	// Apply user option
 	for _, optFunc := range in.Options {

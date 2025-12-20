@@ -1,11 +1,12 @@
 package response
 
 import (
-	"github.com/golibs-starter/golib/exception"
-	"github.com/pkg/errors"
-	"net/http"
 	"reflect"
 	"testing"
+
+	"github.com/pkg/errors"
+	"github.com/valyala/fasthttp"
+	"github.com/william9x/golib-core/exception"
 )
 
 func TestNew(t *testing.T) {
@@ -59,7 +60,7 @@ func TestError(t *testing.T) {
 			args: args{err: errors.New("a native error")},
 			want: Response{
 				Meta: Meta{
-					Code:    http.StatusInternalServerError,
+					Code:    fasthttp.StatusInternalServerError,
 					Message: "Internal Server Error",
 				},
 				Data: nil,

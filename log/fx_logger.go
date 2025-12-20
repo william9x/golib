@@ -1,19 +1,19 @@
-package golib
+package log
 
 import (
 	"fmt"
-	"github.com/golibs-starter/golib/log"
-	"github.com/golibs-starter/golib/log/field"
-	"go.uber.org/fx/fxevent"
 	"strings"
+
+	"github.com/william9x/golib-core/log/field"
+	"go.uber.org/fx/fxevent"
 )
 
 // FxLogger is a Fx event logger that logs events to field.
 type FxLogger struct {
-	logger log.Logger
+	logger Logger
 }
 
-func NewFxLogger(logger log.Logger) fxevent.Logger {
+func NewFxLogger(logger Logger) fxevent.Logger {
 	return &FxLogger{logger: logger.WithField(field.String("module", "fx"))}
 }
 

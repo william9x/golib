@@ -2,9 +2,10 @@ package field
 
 import (
 	"fmt"
+	"time"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"time"
 )
 
 type Field = zap.Field

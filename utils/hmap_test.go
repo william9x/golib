@@ -1,12 +1,13 @@
 package utils
 
 import (
-	"github.com/emirpasic/gods/maps/linkedhashmap"
-	"github.com/stretchr/testify/require"
-	"gopkg.in/yaml.v2"
 	"reflect"
 	"testing"
 	"time"
+
+	"github.com/emirpasic/gods/maps/linkedhashmap"
+	"github.com/stretchr/testify/require"
+	"gopkg.in/yaml.v2"
 )
 
 func Test_LinkedHMapToMapStr(t *testing.T) {

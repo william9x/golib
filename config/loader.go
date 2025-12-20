@@ -2,15 +2,16 @@ package config
 
 import (
 	"fmt"
+	"reflect"
+	"strings"
+
 	"github.com/go-playground/validator/v10"
-	"github.com/golibs-starter/golib/utils"
 	"github.com/mitchellh/mapstructure"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
-	"github.com/zenthangplus/defaults"
+	"github.com/william9x/golib-core/defaults"
+	"github.com/william9x/golib-core/utils"
 	"gopkg.in/yaml.v2"
-	"reflect"
-	"strings"
 )
 
 type Loader interface {

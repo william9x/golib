@@ -1,9 +1,10 @@
 package utils
 
 import (
-	assert "github.com/stretchr/testify/require"
 	"os"
 	"testing"
+
+	assert "github.com/stretchr/testify/require"
 )
 
 func Test_ReplacePlaceholder_WhenValidPlaceholderAndEnvIsPresent_ShouldReturnCorrect(t *testing.T) {

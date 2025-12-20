@@ -1,9 +1,10 @@
 package config
 
 import (
-	"github.com/golibs-starter/golib/utils"
-	"github.com/mitchellh/mapstructure"
 	"reflect"
+
+	"github.com/mitchellh/mapstructure"
+	"github.com/william9x/golib-core/utils"
 )
 
 func MapStructurePlaceholderValueHook() mapstructure.DecodeHookFunc {

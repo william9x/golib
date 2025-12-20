@@ -1,7 +1,7 @@
 package log
 
 import (
-	"github.com/golibs-starter/golib/config"
+	"github.com/william9x/golib-core/config"
 )
 
 func NewProperties(loader config.Loader) (*Properties, error) {

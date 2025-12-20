@@ -1,9 +1,10 @@
 package config
 
 import (
-	assert "github.com/stretchr/testify/require"
 	"os"
 	"testing"
+
+	assert "github.com/stretchr/testify/require"
 )
 
 type testStore struct {

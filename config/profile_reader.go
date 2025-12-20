@@ -1,13 +1,14 @@
 package config
 
 import (
-	"github.com/golibs-starter/golib/utils"
-	"github.com/pkg/errors"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/pkg/errors"
+	"github.com/william9x/golib-core/utils"
+	"gopkg.in/yaml.v2"
 )
 
 type ProfileReader interface {

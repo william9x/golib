@@ -1,9 +1,10 @@
 package actuator
 
 import (
-	"github.com/golibs-starter/golib/actuator"
-	"github.com/golibs-starter/golib/web/response"
-	"net/http"
+	"github.com/gofiber/fiber/v2"
+	"github.com/valyala/fasthttp"
+	"github.com/william9x/golib-core/actuator"
+	"github.com/william9x/golib-core/web/response"
 )
 
 type Endpoint struct {
@@ -26,18 +27,18 @@ func (c Endpoint) InfoService() actuator.InfoService {
 	return c.infoService
 }
 
-func (c Endpoint) Health(w http.ResponseWriter, r *http.Request) {
-	health := c.healthService.Check(r.Context())
+func (c Endpoint) Health(ctx *fiber.Ctx) error {
+	health := c.healthService.Check(ctx.UserContext())
 	var res response.Response
 	if health.Status == actuator.StatusDown {
-		res = response.New(http.StatusServiceUnavailable, "Server is down", health)
+		res = response.New(fasthttp.StatusServiceUnavailable, "Server is down", health)
 	} else {
-		res = response.New(http.StatusOK, "Server is up", health)
+		res = response.New(fasthttp.StatusOK, "Server is up", health)
 	}
-	response.Write(w, res)
+	return response.Write(ctx, res)
 }
 
-func (c Endpoint) Info(w http.ResponseWriter, r *http.Request) {
+func (c Endpoint) Info(ctx *fiber.Ctx) error {
 	info := c.infoService.Info()
-	response.Write(w, response.Ok(info))
+	return response.Write(ctx, response.Ok(info))
 }

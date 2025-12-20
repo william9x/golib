@@ -1,9 +1,10 @@
 package utils
 
 import (
-	assert "github.com/stretchr/testify/require"
 	"reflect"
 	"testing"
+
+	assert "github.com/stretchr/testify/require"
 )
 
 func Test_DeepSearchInMap(t *testing.T) {

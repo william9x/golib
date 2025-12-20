@@ -2,41 +2,19 @@ package log
 
 import (
 	"context"
-	"fmt"
-	"github.com/golibs-starter/golib/log/field"
-	"os"
-	"strconv"
 	"sync"
+
+	"github.com/william9x/golib-core/log/field"
 )
 
-var _global *ZapLogger
+var _global Logger
 var _globalLoggerLock = &sync.RWMutex{}
 
-func init() {
-	// We want the default global Logger will
-	// in the same config with default in the log.Properties
-	devMode, _ := strconv.ParseBool(os.Getenv("APP_LOGGING_DEVELOPMENT"))
-	jsonMode := true
-	jsonModeStr := os.Getenv("APP_LOGGING_JSONOUTPUTMODE")
-	if jsonModeStr != "" {
-		jsonMode, _ = strconv.ParseBool(jsonModeStr)
-	}
-	zapLogger, err := NewZapLogger(&Options{
-		CallerSkip:     1,
-		Development:    devMode,
-		JsonOutputMode: jsonMode,
-	})
-	if err != nil {
-		panic(fmt.Errorf("init global logger error [%v]", err))
-	}
-	ReplaceGlobal(zapLogger)
-}
-
 // ReplaceGlobal Register a logger instance as global
-func ReplaceGlobal(logger *ZapLogger) {
+func ReplaceGlobal(logger Logger) {
 	_globalLoggerLock.Lock()
 	defer _globalLoggerLock.Unlock()
-	_global = logger.Clone(1)
+	_global = logger
 }
 
 // GetGlobal Get global logger instance
@@ -45,23 +23,23 @@ func GetGlobal() Logger {
 }
 
 func WithCtx(ctx context.Context, additionalFields ...field.Field) Logger {
-	return _global.Clone(-1).WithCtx(ctx, additionalFields...)
+	return _global.WithCtx(ctx, additionalFields...)
 }
 
 func WithField(fields ...field.Field) Logger {
-	return _global.Clone(-1).WithField(fields...)
+	return _global.WithField(fields...)
 }
 
 func WithError(err error) Logger {
-	return _global.Clone(-1).WithError(err)
+	return _global.WithError(err)
 }
 
 func WithErrors(errs ...error) Logger {
-	return _global.Clone(-1).WithErrors(errs...)
+	return _global.WithErrors(errs...)
 }
 
 func WithAny(key string, value interface{}) Logger {
-	return _global.Clone(-1).WithAny(key, value)
+	return _global.WithAny(key, value)
 }
 
 // Debug uses fmt.Sprint to construct and log a message.

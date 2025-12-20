@@ -1,8 +1,9 @@
 package field
 
 import (
-	"go.uber.org/zap"
 	"time"
+
+	"go.uber.org/zap"
 )
 
 // Bools constructs a field that carries a slice of bools.

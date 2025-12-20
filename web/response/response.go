@@ -2,8 +2,9 @@ package response
 
 import (
 	"errors"
-	"github.com/golibs-starter/golib/exception"
-	"net/http"
+
+	"github.com/valyala/fasthttp"
+	"github.com/william9x/golib-core/exception"
 )
 
 type Response struct {
@@ -22,15 +23,15 @@ func New(code int, message string, data interface{}) Response {
 }
 
 func Ok(data interface{}) Response {
-	return New(http.StatusOK, "Successful", data)
+	return New(fasthttp.StatusOK, "Successful", data)
 }
 
 func Created(data interface{}) Response {
-	return New(http.StatusCreated, "Resource created", data)
+	return New(fasthttp.StatusCreated, "Resource created", data)
 }
 
 func Error(err error) Response {
-	code := http.StatusInternalServerError
+	code := fasthttp.StatusInternalServerError
 	message := "Internal Server Error"
 	var e exception.Exception
 	if errors.As(err, &e) {

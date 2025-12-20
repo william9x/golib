@@ -1,8 +1,9 @@
-package golib
+package golib_core
 
 import (
-	assert "github.com/stretchr/testify/require"
 	"testing"
+
+	assert "github.com/stretchr/testify/require"
 )
 
 type testDummyProps struct {

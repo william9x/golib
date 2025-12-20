@@ -1,9 +1,10 @@
 package utils
 
 import (
+	"strings"
+
 	"github.com/emirpasic/gods/maps/linkedhashmap"
 	"gopkg.in/yaml.v2"
-	"strings"
 )
 
 type MapItem struct {

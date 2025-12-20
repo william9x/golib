@@ -2,8 +2,9 @@ package properties
 
 import (
 	"fmt"
-	"github.com/golibs-starter/golib/config"
 	"regexp"
+
+	"github.com/william9x/golib-core/config"
 )
 
 func NewHttpRequestLogProperties(loader config.Loader) (*HttpRequestLogProperties, error) {
@@ -14,7 +15,7 @@ func NewHttpRequestLogProperties(loader config.Loader) (*HttpRequestLogPropertie
 
 type HttpRequestLogProperties struct {
 	Disabled               bool
-	PredefinedDisabledUrls []*UrlMatching `default:"[{\"UrlPattern\":\"^/actuator/.*\"}]"`
+	PredefinedDisabledUrls []*UrlMatching `default:"[{\"UrlPattern\":\"/actuator/health\"},{\"UrlPattern\":\"/actuator/info\"}]"`
 	DisabledUrls           []*UrlMatching
 	allDisabledUrls        []*UrlMatching
 }

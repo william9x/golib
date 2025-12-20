@@ -1,26 +1,21 @@
-package golib
+package golib_core
 
 import (
-	"github.com/golibs-starter/golib/log"
-	webLog "github.com/golibs-starter/golib/web/log"
 	"github.com/pkg/errors"
+	"github.com/william9x/golib-core/log"
+	"github.com/william9x/golib-core/web/middleware"
+	"github.com/william9x/golib-core/web/properties"
 	"go.uber.org/fx"
 )
 
 func LoggingOpt() fx.Option {
 	return fx.Options(
 		ProvideProps(log.NewProperties),
-		RegisterLogContextExtractor(webLog.ContextExtractor),
 		fx.Provide(NewZapLogger),
+		fx.Provide(log.NewFiberZapLogger),
 		fx.Invoke(RegisterLogger),
+		fx.Invoke(RegisterRequestContextMiddleware),
 	)
-}
-
-func RegisterLogContextExtractor(extractor log.ContextExtractor) fx.Option {
-	return fx.Provide(fx.Annotated{
-		Group:  "log_context_extractor",
-		Target: func() log.ContextExtractor { return extractor },
-	})
 }
 
 type ZapLoggerIn struct {
@@ -29,7 +24,7 @@ type ZapLoggerIn struct {
 	ContextExtractors []log.ContextExtractor `group:"log_context_extractor"`
 }
 
-func NewZapLogger(in ZapLoggerIn) (log.Logger, error) {
+func NewZapLogger(in ZapLoggerIn) (*log.ZapLogger, error) {
 	// Create new logger instance
 	logger, err := log.NewZapLogger(&log.Options{
 		Development:       in.Props.Development,
@@ -43,11 +38,17 @@ func NewZapLogger(in ZapLoggerIn) (log.Logger, error) {
 	if err != nil {
 		return nil, errors.WithMessage(err, "init logger failed")
 	}
-	log.ReplaceGlobal(logger)
-	webLog.ReplaceGlobal(logger.Clone(1))
 	return logger, nil
 }
 
-func RegisterLogger(logger log.Logger) {
-	// This is dummy invoker to make sure logger are produced by fx
+func RegisterLogger(fiberZapLogger log.Logger) {
+	log.ReplaceGlobal(fiberZapLogger)
+}
+
+func RegisterRequestContextMiddleware(
+	app *App,
+	zapLogger *log.ZapLogger,
+	httpRequestLogProperties *properties.HttpRequestLogProperties,
+) {
+	app.AddHandler(middleware.RequestContext(zapLogger.GetCore(), httpRequestLogProperties))
 }

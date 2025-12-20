@@ -14,7 +14,7 @@ type RequestAttributes struct {
 	CallerId           string             `json:"caller_id"`
 	DeviceId           string             `json:"device_id"`
 	DeviceSessionId    string             `json:"device_session_id"`
-	CorrelationId      string             `json:"correlation_id"`
+	RequestId          string             `json:"correlation_id"`
 	ClientIpAddress    string             `json:"client_ip_address"`
 	UserAgent          string             `json:"user_agent"`
 	SecurityAttributes SecurityAttributes `json:"security_attributes"`

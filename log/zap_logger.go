@@ -2,8 +2,9 @@ package log
 
 import (
 	"context"
-	"github.com/golibs-starter/golib/log/field"
+
 	"github.com/pkg/errors"
+	"github.com/william9x/golib-core/log/field"
 	"go.uber.org/zap"
 )
 
@@ -27,6 +28,10 @@ func NewZapLogger(opts *Options) (*ZapLogger, error) {
 		core:  core,
 		sugar: core.Sugar(),
 	}, nil
+}
+
+func (l *ZapLogger) GetCore() *zap.Logger {
+	return l.Clone(0).core
 }
 
 func (l *ZapLogger) Clone(addedCallerSkip int, fields ...field.Field) *ZapLogger {

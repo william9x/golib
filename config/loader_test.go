@@ -1,9 +1,10 @@
 package config
 
 import (
-	assert "github.com/stretchr/testify/require"
 	"reflect"
 	"testing"
+
+	assert "github.com/stretchr/testify/require"
 )
 
 func TestLoader_WhenFormatIsNotSupported_ShouldReturnError(t *testing.T) {
