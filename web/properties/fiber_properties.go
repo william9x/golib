@@ -36,8 +36,8 @@ type FiberProperties struct {
 	// immutable fashion so that these values are available even if you return
 	// from handler.
 	//
-	// Default: false
-	Immutable bool
+	// Default: true
+	Immutable bool `default:"true"`
 
 	// When set to true, converts all encoded characters in the route back
 	// before setting the path for the context, so that the routing,
