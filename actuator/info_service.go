@@ -1,7 +1,7 @@
 package actuator
 
 import (
-	"github.com/william9x/golib-core/config"
+	"github.com/william9x/golib/config"
 )
 
 type InfoService interface {

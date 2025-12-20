@@ -5,7 +5,7 @@ import (
 
 	"github.com/gofiber/contrib/fiberzap/v2"
 	"github.com/gofiber/fiber/v2/log"
-	"github.com/william9x/golib-core/log/field"
+	"github.com/william9x/golib/log/field"
 )
 
 type FiberZapLogger struct {

@@ -1,10 +1,10 @@
-package golib_core
+package golib
 
 import (
 	"github.com/pkg/errors"
-	"github.com/william9x/golib-core/log"
-	"github.com/william9x/golib-core/web/middleware"
-	"github.com/william9x/golib-core/web/properties"
+	"github.com/william9x/golib/log"
+	"github.com/william9x/golib/web/middleware"
+	"github.com/william9x/golib/web/properties"
 	"go.uber.org/fx"
 )
 

@@ -1,4 +1,4 @@
-package golib_core
+package golib
 
 import (
 	"testing"

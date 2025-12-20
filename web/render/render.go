@@ -5,7 +5,7 @@ import (
 	"syscall"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/william9x/golib-core/log"
+	"github.com/william9x/golib/log"
 )
 
 // Renderer interface is to be implemented by JSON, XML, HTML, YAML and so on.

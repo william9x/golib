@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/william9x/golib-core/log/field"
+	"github.com/william9x/golib/log/field"
 	"go.uber.org/fx/fxevent"
 )
 

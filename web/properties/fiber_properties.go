@@ -3,7 +3,7 @@ package properties
 import (
 	"time"
 
-	"github.com/william9x/golib-core/config"
+	"github.com/william9x/golib/config"
 )
 
 func NewFiberProperties(loader config.Loader) (*FiberProperties, error) {

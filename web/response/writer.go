@@ -2,7 +2,7 @@ package response
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/william9x/golib-core/web/render"
+	"github.com/william9x/golib/web/render"
 )
 
 func Write(ctx *fiber.Ctx, res Response) error {

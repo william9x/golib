@@ -1,12 +1,12 @@
-package golib_core
+package golib
 
 import (
 	"context"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/william9x/golib-core/config"
-	"github.com/william9x/golib-core/log"
-	"github.com/william9x/golib-core/web/middleware"
+	"github.com/william9x/golib/config"
+	"github.com/william9x/golib/log"
+	"github.com/william9x/golib/web/middleware"
 	"go.uber.org/fx"
 )
 

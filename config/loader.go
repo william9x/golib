@@ -9,8 +9,8 @@ import (
 	"github.com/mitchellh/mapstructure"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
-	"github.com/william9x/golib-core/defaults"
-	"github.com/william9x/golib-core/utils"
+	"github.com/william9x/golib/defaults"
+	"github.com/william9x/golib/utils"
 	"gopkg.in/yaml.v2"
 )
 

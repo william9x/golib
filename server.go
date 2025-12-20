@@ -1,4 +1,4 @@
-package golib_core
+package golib
 
 import (
 	"context"
@@ -6,8 +6,8 @@ import (
 
 	"github.com/bytedance/sonic"
 	"github.com/gofiber/fiber/v2"
-	"github.com/william9x/golib-core/log"
-	"github.com/william9x/golib-core/web/properties"
+	"github.com/william9x/golib/log"
+	"github.com/william9x/golib/web/properties"
 	"go.uber.org/fx"
 )
 

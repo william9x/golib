@@ -1,6 +1,6 @@
 package build
 
-import "github.com/william9x/golib-core/actuator"
+import "github.com/william9x/golib/actuator"
 
 type Version string
 type CommitHash string

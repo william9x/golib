@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/william9x/golib-core/config"
+	"github.com/william9x/golib/config"
 )
 
 func NewHttpRequestLogProperties(loader config.Loader) (*HttpRequestLogProperties, error) {

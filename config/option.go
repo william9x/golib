@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 
-	"github.com/william9x/golib-core/utils"
+	"github.com/william9x/golib/utils"
 )
 
 const (

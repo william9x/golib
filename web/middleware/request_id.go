@@ -4,8 +4,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/requestid"
 	"github.com/google/uuid"
-	"github.com/william9x/golib-core/log"
-	"github.com/william9x/golib-core/web/constant"
+	"github.com/william9x/golib/log"
+	"github.com/william9x/golib/web/constant"
 )
 
 // RequestId middleware responsible to inject RequestId to request attributes

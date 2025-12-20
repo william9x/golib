@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	"github.com/valyala/fasthttp"
-	"github.com/william9x/golib-core/exception"
+	"github.com/william9x/golib/exception"
 )
 
 type Response struct {

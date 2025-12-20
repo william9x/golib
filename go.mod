@@ -1,4 +1,4 @@
-module github.com/william9x/golib-core
+module github.com/william9x/golib
 
 go 1.25
 

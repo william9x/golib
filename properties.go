@@ -1,4 +1,4 @@
-package golib_core
+package golib
 
 import (
 	"fmt"
@@ -7,9 +7,9 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/william9x/golib-core/config"
-	"github.com/william9x/golib-core/log"
-	"github.com/william9x/golib-core/utils"
+	"github.com/william9x/golib/config"
+	"github.com/william9x/golib/log"
+	"github.com/william9x/golib/utils"
 	"go.uber.org/fx"
 )
 

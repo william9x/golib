@@ -1,4 +1,4 @@
-# Golib Core
+# Golib
 
 > **Note:**
 > The original repository is [golibs-starter/golib](https://github.com/golibs-starter/golib). Details for usage, configurations and examples can be found there.
@@ -14,7 +14,7 @@
 Both `go get` and `go mod` are supported.
 
 ```shell
-go get github.com/william9x/golib-core
+go get github.com/william9x/golib
 ```
 
 ### Configuration

@@ -1,9 +1,9 @@
-package golib_core
+package golib
 
 import (
-	"github.com/william9x/golib-core/actuator"
-	"github.com/william9x/golib-core/config"
-	webActuator "github.com/william9x/golib-core/web/actuator"
+	"github.com/william9x/golib/actuator"
+	"github.com/william9x/golib/config"
+	webActuator "github.com/william9x/golib/web/actuator"
 	"go.uber.org/fx"
 )
 

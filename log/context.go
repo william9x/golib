@@ -3,7 +3,7 @@ package log
 import (
 	"context"
 
-	"github.com/william9x/golib-core/log/field"
+	"github.com/william9x/golib/log/field"
 )
 
 type ContextExtractor func(ctx context.Context) []field.Field

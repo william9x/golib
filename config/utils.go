@@ -4,7 +4,7 @@ import (
 	"reflect"
 
 	"github.com/mitchellh/mapstructure"
-	"github.com/william9x/golib-core/utils"
+	"github.com/william9x/golib/utils"
 )
 
 func MapStructurePlaceholderValueHook() mapstructure.DecodeHookFunc {

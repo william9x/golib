@@ -5,9 +5,9 @@ import (
 
 	"github.com/gofiber/contrib/fiberzap/v2"
 	"github.com/gofiber/fiber/v2"
-	"github.com/william9x/golib-core/log"
-	"github.com/william9x/golib-core/web/constant"
-	"github.com/william9x/golib-core/web/properties"
+	"github.com/william9x/golib/log"
+	"github.com/william9x/golib/web/constant"
+	"github.com/william9x/golib/web/properties"
 	"go.uber.org/zap"
 )
 

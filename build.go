@@ -1,7 +1,7 @@
-package golib_core
+package golib
 
 import (
-	"github.com/william9x/golib-core/build"
+	"github.com/william9x/golib/build"
 	"go.uber.org/fx"
 )
 

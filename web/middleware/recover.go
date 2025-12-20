@@ -3,7 +3,7 @@ package middleware
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
-	"github.com/william9x/golib-core/log"
+	"github.com/william9x/golib/log"
 )
 
 // Recover middleware for Fiber that recovers from panics anywhere in the stack chain

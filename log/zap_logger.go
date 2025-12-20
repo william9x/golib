@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/pkg/errors"
-	"github.com/william9x/golib-core/log/field"
+	"github.com/william9x/golib/log/field"
 	"go.uber.org/zap"
 )
 

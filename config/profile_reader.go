@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-	"github.com/william9x/golib-core/utils"
+	"github.com/william9x/golib/utils"
 	"gopkg.in/yaml.v2"
 )
 
