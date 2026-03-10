@@ -33,8 +33,7 @@ func Created(data interface{}) Response {
 func Error(err error) Response {
 	code := fasthttp.StatusInternalServerError
 	message := "Internal Server Error"
-	var e exception.Exception
-	if errors.As(err, &e) {
+	if e, ok := errors.AsType[exception.Exception](err); ok {
 		code = int(e.Code())
 		message = e.Message()
 	}
