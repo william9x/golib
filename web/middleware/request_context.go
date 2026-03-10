@@ -47,6 +47,7 @@ func RequestContext(
 		FieldsFunc: func(c *fiber.Ctx) []zap.Field {
 			return []zap.Field{
 				zap.String("request_id", fmt.Sprintf("%s", c.Request().UserValue(constant.UserValueRequestId))),
+				zap.String("device_id", c.Get(constant.HeaderDeviceId)),
 				zap.String("platform", c.Get(constant.HeaderPlatform)),
 				zap.String("on_mobile", c.Get(constant.HeaderIsOnMobile)),
 			}
